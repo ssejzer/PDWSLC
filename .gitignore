@@ -1,0 +1,19 @@
+# Windows and editors
+Thumbs.db
+Desktop.ini
+.vs/
+.idea/
+*.user
+*.suo
+
+# Future .NET builds and release output
+**/bin/
+**/obj/
+artifacts/
+
+# Local runtime data and image archives
+.pdwslc/
+*.vhd
+*.vhdx
+*.tar
+*.log
