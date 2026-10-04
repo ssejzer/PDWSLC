@@ -1,0 +1,26 @@
+<Application x:Class="PDWSLC.App.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <SolidColorBrush x:Key="AccentBrush" Color="#2457D6" />
+    <Style TargetType="Button">
+      <Setter Property="Padding" Value="14,8" />
+      <Setter Property="Margin" Value="0,0,8,0" />
+      <Setter Property="MinHeight" Value="36" />
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="Padding" Value="8,6" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style TargetType="DataGrid">
+      <Setter Property="AutoGenerateColumns" Value="False" />
+      <Setter Property="IsReadOnly" Value="True" />
+      <Setter Property="CanUserAddRows" Value="False" />
+      <Setter Property="SelectionMode" Value="Single" />
+      <Setter Property="SelectionUnit" Value="FullRow" />
+      <Setter Property="GridLinesVisibility" Value="Horizontal" />
+      <Setter Property="RowHeight" Value="38" />
+      <Setter Property="HeadersVisibility" Value="Column" />
+      <Setter Property="BorderBrush" Value="#DDE2EA" />
+    </Style>
+  </Application.Resources>
+</Application>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>PDWSLC</AssemblyName>
+    <DebugType>embedded</DebugType>
+    <PublishSingleFile Condition="'$(RuntimeIdentifier)' != ''">true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <CopyOutputSymbolsToPublishDirectory>false</CopyOutputSymbolsToPublishDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PDWSLC.Core/PDWSLC.Core.csproj" />
+    <EmbeddedResource Include="../../desktop.ps1" LogicalName="PDWSLC.Runtime.desktop.ps1" />
+    <EmbeddedResource Include="runtime/Requirements.ps1" LogicalName="PDWSLC.Runtime.Requirements.ps1" />
+    <EmbeddedResource Include="runtime/Invoke-Desktop.ps1" LogicalName="PDWSLC.Runtime.Invoke-Desktop.ps1" />
+  </ItemGroup>
+</Project>

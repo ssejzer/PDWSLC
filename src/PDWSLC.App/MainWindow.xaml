@@ -1,0 +1,32 @@
+<Window x:Class="PDWSLC.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="PDWSLC Desktop Manager — Preview"
+        Width="1050" Height="780" MinWidth="850" MinHeight="650" Background="#F4F6FA"
+        FontFamily="Segoe UI" FontSize="14" Loaded="Window_Loaded" Closing="Window_Closing">
+  <Grid Margin="24">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/><RowDefinition Height="155"/></Grid.RowDefinitions>
+    <StackPanel Margin="0,0,0,18">
+      <TextBlock Text="Your Linux desktops" FontSize="28" FontWeight="SemiBold"/>
+      <TextBlock Text="Right-click a folder, desktop, or orphaned home for actions. Drag desktops and orphaned homes into folders." Foreground="#586477" Margin="0,6,0,0" TextWrapping="Wrap"/>
+    </StackPanel>
+    <DockPanel Grid.Row="1" x:Name="SessionControls" Margin="0,0,0,14">
+      <TextBlock Text="Session" VerticalAlignment="Center" Margin="0,0,12,0"/>
+      <TextBox x:Name="SessionBox" Width="260" HorizontalAlignment="Left" TextChanged="Session_Changed" ToolTip="Blank uses the default session. Right-click Host to refresh."/>
+      <CheckBox x:Name="RunningOnly" Content="Running desktops only" Margin="18,0,0,0" VerticalAlignment="Center" Checked="Filter_Changed" Unchecked="Filter_Changed"/>
+    </DockPanel>
+    <TreeView Grid.Row="2" x:Name="DesktopTree" Background="White" BorderBrush="#DDE2EA" Padding="10"
+              PreviewMouseRightButtonDown="Tree_RightClick" PreviewMouseLeftButtonDown="Tree_LeftDown" MouseMove="Tree_MouseMove"
+              PreviewKeyDown="Tree_KeyDown"
+              AllowDrop="True" DragOver="Tree_DragOver" Drop="Tree_Drop" ContextMenuOpening="Tree_ContextMenuOpening"
+              SelectedItemChanged="Tree_SelectionChanged" AutomationProperties.Name="Desktop folders">
+      <TreeView.ContextMenu><ContextMenu/></TreeView.ContextMenu>
+      <TreeView.ItemContainerStyle>
+        <Style TargetType="TreeViewItem"><Setter Property="Padding" Value="4,6"/><Setter Property="IsExpanded" Value="True"/></Style>
+      </TreeView.ItemContainerStyle>
+    </TreeView>
+    <StackPanel Grid.Row="3" Margin="0,14,0,8">
+      <ProgressBar x:Name="Progress" Height="3" IsIndeterminate="True" Visibility="Collapsed"/>
+      <TextBlock x:Name="StatusText" Text="Ready" TextWrapping="Wrap" Margin="0,8,0,0"/>
+    </StackPanel>
+    <TextBox Grid.Row="4" x:Name="OutputBox" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="12" Background="White" AutomationProperties.Name="Operation output"/>
+  </Grid>
+</Window>
